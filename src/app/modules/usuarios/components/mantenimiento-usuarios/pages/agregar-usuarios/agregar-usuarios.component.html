@@ -1,0 +1,85 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<div class="p-3">
+    <div class="text-center">
+        <h1>Agregar Usuario</h1>
+    </div>
+    <p-divider></p-divider>
+    <form [formGroup]="usuario">
+        <div class="card">
+            <div class="grid">
+                <div class="col md:col-6">
+                    <div class="card-container mt-3 mx-3">
+                        <span class="p-float-label">
+                            <input class="md:w-full" [pKeyFilter]="spaceAlphaNum" formControlName="nombres" pInputText id="username"/>
+                            <label htmlFor="username">Nombres</label>
+                        </span>
+                        <small class="advertencia" *ngIf="usuario.controls.nombres.invalid && usuario.controls.nombres.touched">
+                            * Los nombres son campos obligatorios
+                        </small>    
+                    </div>
+                    
+                    <div class="card-container mt-5 mx-3">
+                        <span class="p-float-label">
+                            <input class="md:w-full" [pKeyFilter]="spaceAlphaNum" formControlName="apellidos" pInputText id="username"/>
+                            <label htmlFor="username">Apellidos</label>
+                        </span>
+                        <small class="advertencia" *ngIf="usuario.controls.apellidos.invalid && usuario.controls.apellidos.touched">
+                            * Los apellidos son campos obligatorios
+                        </small>    
+                    </div>
+
+                    <div class="card-container mt-5 mx-3">
+
+                        <span class="p-float-label">
+                            <input class="md:w-full" pKeyFilter="alphanum" formControlName="usuario" pInputText id="username"/>
+                            <label htmlFor="username">Usuario</label>
+                        </span>
+                        <small class="advertencia" *ngIf="usuario.controls.usuario.invalid && usuario.controls.usuario.touched">
+                            * El usuario es un campo obligatorio
+                        </small>  
+                    </div>
+
+                </div>
+                <div class="col md:col-6">
+                    <div class="card-container mt-3 mx-3">
+
+                        <span class="p-float-label">
+                            <input class="md:w-full"  [pKeyFilter]="alphaNumMChar" formControlName="password" pInputText id="username"/>
+                            <label htmlFor="username">Password</label>
+                        </span>
+                        <small class="advertencia" *ngIf="usuario.controls.password.invalid && usuario.controls.password.touched">
+                            * La direccion es un campo obligatorio
+                        </small>  
+                    </div>
+
+                    <div class="card-container mt-5 mx-3">
+
+                        <span class="p-float-label">
+                            <input class="md:w-full" [pKeyFilter]="alphaNumChar" formControlName="correo" pInputText id="username"/>
+                            <label htmlFor="username">Correo</label>
+                        </span>
+                        <small class="advertencia" *ngIf="usuario.controls.correo.invalid && usuario.controls.correo.touched">
+                            * La correo electronico es un campo obligatorio
+                        </small>  
+                    </div>
+                </div>
+            </div>
+                <p-divider></p-divider>
+                <div class="card">
+                    <div class="flex justify-content-around flex-wrap">
+
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="verificar()" [disabled]="!usuario" icon="pi pi-plus" pButton label="Agregar registro"></button>
+                        </div>
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="limpiar()" pButton label="Limpiar campos" icon="pi pi-eraser" class="p-button-success"></button>
+                        </div>
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="cancelar()"  pButton label="Cancelar" icon="pi pi-ban" class="p-button-danger"></button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </form>
+</div>

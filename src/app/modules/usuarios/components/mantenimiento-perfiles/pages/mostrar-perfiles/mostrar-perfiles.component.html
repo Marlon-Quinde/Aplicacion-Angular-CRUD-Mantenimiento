@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<mat-card class="m-3">
+    <mat-card-header>
+      <mat-card-title>Perfiles</mat-card-title>
+      <mat-card-subtitle>CRUD</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content> 
+        <p>El sistema de perfiles se basa en un CRUD que como su nombre lo indica permite crear, leer, modificar y borrar algun registro del sistema</p>
+    </mat-card-content>
+    <mat-card-actions>
+    <button (click)="agregar()" mat-button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>  
+        <label class="p-3"> Crear</label>
+    </button>
+    </mat-card-actions>
+</mat-card>
+
+
+<div class="card">
+    <p-table [value]="perfiles">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID <p-sortIcon field="code"></p-sortIcon></th>
+                <th pSortableColumn="descripcion">Descripcion <p-sortIcon field="name"></p-sortIcon></th>
+                <th >Editar </th>
+                <th >Eliminar </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-perfiles>
+            <tr>
+                <td>{{perfiles.id}}</td>
+                <td>{{perfiles.descripcion}}</td>
+                <td><button (click)="modificar(perfiles)" pButton icon="pi pi-pencil" class="p-button-rounded"></button></td>
+                <td><button (click)="eliminar(perfiles)" pButton icon="pi pi-eraser" class="p-button-rounded p-button-danger"></button></td>
+                
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

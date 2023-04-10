@@ -1,0 +1,61 @@
+<ng-container>
+<div class="card">
+    <app-menu-bar></app-menu-bar>
+</div>
+<section class="imagen">
+    <div class="contenido-imagen">
+        <h2>Sistemas de Gestion <span>(CRUD)</span> </h2>
+        <div class="ubicacion">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="11" r="3" />
+                <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+            </svg>
+            <p>Guayas, Guayaquil</p>
+        </div>
+    </div>
+</section>
+
+<div class="col-12">
+    <p-panel [toggleable]="true">
+        <ng-template pTemplate="header"> <span class="text-primary font-semibold text-xl">Bienvenido</span></ng-template>
+        ¡Bienvenido al sistema de gestión CRUD! Este sistema te permitirá administrar y gestionar los datos de tus clientes de manera fácil y eficiente. Con esta herramienta podrás crear, leer, actualizar y eliminar registros de clientes en una base de datos.
+
+Para acceder al sistema, deberás iniciar sesión con tus credenciales de usuario. Si eres un usuario nuevo, por favor regístrate en el sistema para obtener tus credenciales de inicio de sesión. Una vez que hayas iniciado sesión, podrás comenzar a utilizar todas las funcionalidades del sistema para gestionar tus datos de clientes de manera segura y confiable. ¡Disfruta del sistema y no dudes en contactarnos si necesitas ayuda!
+    </p-panel>
+</div>
+<p-divider></p-divider>
+<div class="grid m-2">
+    <div class="col-12 md:col-6 lg:col-4">
+        <p-card class="header" header="Gestion de Usuarios" subheader="Viamatica">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../../../../assets/images/cards/card-usuarios.jpg"/>
+            </ng-template>
+            <p>
+                La gestión de usuarios es una herramienta informática que permite administrar y gestionar la información de los usuarios que interactúan con una plataforma o sistema en línea, incluyendo funciones como la creación de cuentas, autenticación, gestión de permisos y roles, y actualización de datos de usuario.
+            </p>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <p-card class="header" header="Administracion de Perfiles/Roles" subheader="Viamatica">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../../../../assets/images/cards/card-perfiles.jpg" />
+            </ng-template>
+            <p>
+                La administración de perfiles/roles es un proceso que permite asignar diferentes niveles de acceso y permisos a los usuarios de un sistema o aplicación en función de su rol o posición en la organización. Los administradores pueden definir y gestionar los perfiles y roles de los usuarios, y otorgar o restringir el acceso a determinadas áreas o funciones del sistema en función de sus necesidades y responsabilidades.
+            </p>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <p-card class="header" header="Sistema de Clientes" subheader="Viamatica">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="../../../../../assets/images/cards/card-clientes.jpg" />
+            </ng-template>
+            <p>
+                Un CRUD (acrónimo de Create, Read, Update, Delete) de clientes es una aplicación informática que permite realizar operaciones básicas sobre una base de datos de clientes, incluyendo la creación de nuevos registros, la lectura o consulta de los datos existentes, la actualización de información de clientes y la eliminación de registros. Este tipo de aplicaciones son muy utilizadas en entornos empresariales y de negocios para gestionar la información de los clientes y realizar tareas como la segmentación de clientes, el análisis de ventas, y la gestión de relaciones con los clientes (CRM).
+            </p>
+        </p-card>
+    </div>
+
+</div>
+</ng-container>

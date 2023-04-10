@@ -1,0 +1,52 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="primary">
+            <span>Menu de mantenimiento</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-nav-list>
+                <a routerLink="../home"
+                   mat-list-item
+                   (click)="sidenav.toggle()">
+                   <mat-icon matListItemIcon>home</mat-icon>
+                   <span> Inicio </span>
+                </a>
+                <a routerLink="./usuarios"
+                   mat-list-item
+                   (click)="sidenav.toggle()">
+                   <mat-icon matListItemIcon>person</mat-icon>
+                   <span> Usuarios </span>
+                </a>
+                <a routerLink="./perfiles"
+                   mat-list-item
+                   (click)="sidenav.toggle()">
+                   <mat-icon matListItemIcon>build</mat-icon>
+                    <span> Perfiles </span>
+                </a>
+                <a routerLink="./clientes/mostrar-clientes"
+                   mat-list-item
+                   (click)="sidenav.toggle()">
+                   <mat-icon matListItemIcon>assignment_ind</mat-icon>
+                    <span>Clientes </span>
+                </a>
+            </mat-nav-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <button (click)="cerrarSesion()" mat-button color="basic">
+            <mat-icon>input</mat-icon>
+            Cerrar sesión
+        </button>
+    </mat-toolbar>
+    <div class="card">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

@@ -1,0 +1,116 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<div class="col mt-2 mx-auto">
+    <p-card header="Agregar Cliente" subheader="Registra un nuevo cliente al sistema">
+        <form [formGroup]="registros">
+            <div class="card">
+                <div class="grid">
+                    <div class="col md:col-4">
+
+                        <div class="card-container mt-1 mx-3">
+                            <span class="p-float-label">                               
+                                <p-inputMask styleClass="min-w-full md:w-full" pKeyFilter="int" mask="9999999999" formControlName="cedula"></p-inputMask>
+                                <label htmlFor="username">Cedula</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.cedula.invalid && registros.controls.cedula.touched">
+                                * El campo cedula es requerido
+                            </small>
+                        </div>
+                        <div class="card-container mx-3 mt-4">
+                            
+                            <span class="p-float-label">
+                                <input class="min-w-full md:w-full" [pKeyFilter]="spaceAlphaNum" formControlName="nombres" pInputText id="username"/>
+                                <label htmlFor="username">Nombres</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.nombres.invalid && registros.controls.nombres.touched">
+                                * Los nombres son un campo requerido
+                            </small>
+                        </div>
+                        <div class="card-container mt-4 mx-3">
+    
+                            <span class="p-float-label">
+                                <input class="min-w-full md:w-full" [pKeyFilter]="spaceAlphaNum" formControlName="apellidos" pInputText id="username"/>
+                                <label htmlFor="username">Apellidos</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.apellidos.invalid && registros.controls.apellidos.touched">
+                                * Los apellidos son un campo requerido
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="col md:col-4">
+
+                        <div class="card-container mt-1 mx-3">
+    
+                            <span class="p-float-label w-full">
+                                <p-calendar styleClass="min-w-full md:w-full"
+                                            [maxDate]="maxDate" [minDate]="minDate"
+                                            [showButtonBar]="true" 
+                                            formControlName="fechaNacimiento" 
+                                            [dateFormat]="dateFormat"
+                                            [touchUI]="true"></p-calendar>
+                                <label htmlFor="username">Fecha de Nacimiento</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.fechaNacimiento.invalid && registros.controls.fechaNacimiento.touched">
+                                * La fecha de nacimiento es un campo requerido
+                            </small>
+                        </div>
+                        <div class="card-container mt-4 mx-3">
+                            <span class="p-float-label">
+                                <input class="min-w-full md:w-full" [pKeyFilter]="alphaNumMChar" formControlName="direccion" pInputText id="username"/>
+                                <label htmlFor="username">Direccion</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.direccion.invalid && registros.controls.direccion.touched">
+                                * La direccion es un campo requerido
+                            </small>
+    
+                        </div>
+                        <div class="card-container mt-4 mx-3">
+    
+                            <span class="p-float-label">
+                                <p-inputMask styleClass="min-w-full md:w-full" pKeyFilter="int" mask="999-999-9999" formControlName="numero"></p-inputMask>
+                                <label htmlFor="username">Numero Telefonico</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.numero.invalid && registros.controls.numero.touched">
+                                * El numero telefonico es un campo requerido
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <div class="col md:col-4">
+
+                        <div class="card-container mt-1 mx-3">
+    
+                            <span class="p-float-label">
+                                <input class="min-w-full md:w-full"  [pKeyFilter]="alphaNumChar" formControlName="correo" pInputText id="username"/>
+                                <label htmlFor="username">Correo</label>
+                            </span>
+                            <small class="advertencia" *ngIf="registros.controls.correo.invalid && registros.controls.correo.touched">
+                                * El correo electronico es un campo requerido
+                            </small>    
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                </div>   
+                    <div class="card w-full mt-3">
+                        <div class="flex justify-content-center flex-wrap card-container p-0">
+
+                            <div class="flex align-items-center justify-content-center m-2">
+                                <button (click)="agregar()" pButton icon="pi pi-plus" label="Guardar registro" class="p-button-rounded" [disabled]="!registros.valid"></button>
+                            </div>
+                            <div class="flex align-items-center justify-content-center m-2">
+                                <button (click)="limpiar()" pButton icon="pi pi-eraser" label="Limpiar campos" class="p-button-rounded p-button-success"></button>
+                            </div>
+                            <div class="flex align-items-center justify-content-center m-2">
+                                <button routerLink="/home/clientes" pButton icon="pi pi-chevron-left" label="Regresar" class="p-button-rounded p-button-danger"></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                
+        </form>
+    </p-card>
+</div>

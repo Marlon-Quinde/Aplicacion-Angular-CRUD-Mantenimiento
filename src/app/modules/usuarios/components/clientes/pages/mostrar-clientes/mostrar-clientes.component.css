@@ -1,0 +1,10 @@
+.grid-col{
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    
+    .grid-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}

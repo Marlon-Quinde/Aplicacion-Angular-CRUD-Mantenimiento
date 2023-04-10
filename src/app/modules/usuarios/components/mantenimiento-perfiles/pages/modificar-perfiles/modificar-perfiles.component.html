@@ -1,0 +1,42 @@
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<div class="p-3">
+    <div class="text-center">
+        <h1>Modificar Perfil</h1>
+        <h3>Perfil: <span>{{perfil.descripcion}} </span></h3>
+    </div>
+    <p-divider></p-divider>
+    <form [formGroup]="perfilUp">
+        <div class="card">
+            <div class="flex justify-content-center flex-wrap card-container">
+                <div class="flex align-items-center justify-content-center">
+                    <div class="card-container m-3">
+                        <span class="p-float-label">
+                            <input pKeyFilter="alpha" formControlName="descripcion" pInputText id="username"/>
+                            <label htmlFor="username">Descripcion</label>
+                        </span>
+                        <small class="advertencia" *ngIf="perfilUp.controls.descripcion.invalid && perfilUp.controls.descripcion.touched">
+                            * Debe añadir la descripcion del perfil
+                        </small>    
+                    </div>
+                    
+                </div>
+            </div>    
+                <p-divider></p-divider>
+                <div class="card">
+                    <div class="flex justify-content-around flex-wrap">
+
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="verificar()" [disabled]="!perfilUp" icon="pi pi-plus" pButton label="Modificar registro"></button>
+                        </div>
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="limpiar()" pButton label="Limpiar campos" icon="pi pi-eraser" class="p-button-success"></button>
+                        </div>
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <button (click)="cancelar()"  pButton label="Cancelar" icon="pi pi-ban" class="p-button-danger"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+    </form>
+</div>

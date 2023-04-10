@@ -1,0 +1,13 @@
+.advertencia{
+    color: red;
+    font-style: oblique;
+    font-size: 10px;
+}
+
+h1, h3{
+    font-weight: 700;
+}
+
+span{
+    font-weight: normal;
+}

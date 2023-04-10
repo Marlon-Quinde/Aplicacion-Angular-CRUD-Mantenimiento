@@ -1,0 +1,39 @@
+<p-toast></p-toast>
+<div class="card w-full h-full imagen">
+    <div class="flex flex-column card-container flex-wrap h-full">
+        <mat-card class="m-auto py-5 sm:px-8">
+
+            <div class="flex align-items-center justify-content-center">
+                <mat-card-title class="text-2xl"> Ingresa tus credenciales</mat-card-title>
+            </div>
+            <div class="flex align-items-center justify-content-center">
+                <mat-card-subtitle> Para ingresar al sistema </mat-card-subtitle>
+            </div>        
+                <form [formGroup]="sesionControl">
+                    <div class="flex align-items-center justify-content-center mx-4 mt-3">
+                        <mat-form-field >
+                            <mat-label>Usuario</mat-label>
+                            <input matInput #input formControlName="Usuario" placeholder="Ex. Marlon123">
+                            <button mat-icon-button matSuffix disabled="true">
+                                <mat-icon>person</mat-icon>
+                            </button>
+                        </mat-form-field>
+    
+                    </div>
+                    <div class="flex align-items-center justify-content-center mx-4 my-3">
+                        <mat-form-field >
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+    
+                    </div>
+                    <div class="flex align-items-center justify-content-center">
+                        <button  mat-raised-button color="primary" [disabled] = "!sesionControl.valid" (click)="onSubmit()">Iniciar Sesion</button>
+                    </div>
+                    </form>
+        </mat-card>
+    </div>
+</div>
