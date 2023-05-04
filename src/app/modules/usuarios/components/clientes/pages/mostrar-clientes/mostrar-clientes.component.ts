@@ -20,6 +20,8 @@ import { ResponseBackInterface } from '../../../../../../shared/interfaces/Respo
 
 export class MostrarClientesComponent implements OnInit {
   clientes: ClientesInterface[] = [];
+  columnsName: any
+  
   clientesTrans = new FormGroup({
     transaccion: new FormControl()
   })
@@ -44,6 +46,7 @@ export class MostrarClientesComponent implements OnInit {
 
     this.service.getData(this.clientesTrans.value as ClientesInterface).subscribe((data:ClientesInterface[]) =>{
       this.clientes = data;
+      this.columnsName = Object.keys(data[0]);
     },
     (errorData) => (alert("Usuario no Autorizado"),
 //    this.router.navigate(['/']),

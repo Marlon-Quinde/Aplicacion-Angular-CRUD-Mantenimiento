@@ -5,24 +5,19 @@ import { HomeUsuariosComponent } from './pages/home-usuarios/home-usuarios.compo
 
 import { InicioComponent } from './components/inicio/inicio.component';
 
-
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from '../../shared/services/auth-interceptor.service';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
-
-
-
+import { SharedModule } from 'primeng/api';
 
 
 @NgModule({
   declarations: [
     HomeUsuariosComponent,
-    InicioComponent,
+    InicioComponent
   ],
   imports: [
     CommonModule,
-
+    
     //Material Desing
     AngularMaterialModule,
     PrimeNgModule,

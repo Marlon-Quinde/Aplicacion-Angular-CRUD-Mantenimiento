@@ -14,6 +14,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/mantenimiento-clientes",
+            "allowedCommonJsDependencies": [
+              "file-saver"
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -32,7 +35,8 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeflex/primeflex.css"
             ],
-            "scripts": []
+            "scripts": [ ]
+            
           },
           "configurations": {
             "production": {

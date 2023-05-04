@@ -18,6 +18,7 @@ import { RegistrarClientesComponent } from './pages/registrar-clientes/registrar
 import { ModificarClientesComponent } from './pages/modificar-clientes/modificar-clientes.component';
 import { HomeClientesComponent } from './pages/home-clientes/home-clientes.component';
 import { ClientesRoutingModule } from './clientes-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -34,6 +35,9 @@ import { ClientesRoutingModule } from './clientes-routing.module';
     FormsModule,
     ReactiveFormsModule,
 
+    //Modules
+    SharedModule,
+    
     //Material y PrimeNg
     PrimeNgModule,
     AngularMaterialModule,

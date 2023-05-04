@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { PerfilesService } from '../../services/perfiles.service';
 import { ConfirmEventType, ConfirmationService, MessageService } from 'primeng/api';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,10 +20,15 @@ export class MostrarPerfilesComponent {
     private messageService: MessageService, 
     private dialog:MatDialog){}
     perfiles: PerfilesInterfaces[] = []
+    nameColums: any;
+
+
     registros = new FormGroup({
     transaccion: new FormControl() 
 
 })
+
+  //@Output()
 
   ngOnInit() {
     this.mostrarTodos();
@@ -33,6 +38,7 @@ export class MostrarPerfilesComponent {
       this.registros.value.transaccion = 'MOSTRAR_PERFILES';
       this.service.getData(this.registros.value as PerfilesInterfaces).subscribe((data:PerfilesInterfaces[]) =>{
       this.perfiles = data;
+      this.nameColums = Object.keys(data[0])
     });
   };
 

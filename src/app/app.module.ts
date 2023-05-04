@@ -18,6 +18,9 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { DatatableComponent } from './shared/components/datatable/datatable.component';
+import { SharedModule } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -29,11 +32,14 @@ registerLocaleData(localeEs);
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     //Material Design
     PrimeNgModule,
     AngularMaterialModule,
 
+    //Modulos
+    SharedModule,
 
     //Rutas
     AppRouterModule

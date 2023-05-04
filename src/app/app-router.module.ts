@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./modules/usuarios/usuarios.module').then( m => m.UsuariosModule ),
-    canActivate: [AuthTokenGuard]
+    //canActivate: [AuthTokenGuard]
   },
   {
     path: '404' ,

@@ -21,6 +21,9 @@ export class MostrarUsuariosComponent implements OnInit {
               private messageService: MessageService, 
               private dialog:MatDialog){}
   usuarios: UsuarioInterface[] = []
+  nameColumns: any;
+
+  termino: string = ''
   registros = new FormGroup({
     transaccion: new FormControl() 
 
@@ -34,6 +37,7 @@ export class MostrarUsuariosComponent implements OnInit {
     this.registros.value.transaccion = 'MOSTRAR_USUARIOS';
     this.service.getData(this.registros.value as UsuarioInterface).subscribe((data:UsuarioInterface[]) =>{
       this.usuarios = data;
+      this.nameColumns = Object.keys(data[0])
     });
   };
 
@@ -63,6 +67,7 @@ export class MostrarUsuariosComponent implements OnInit {
   }
 
   modificar(data: UsuarioInterface ){
+    console.log(this.termino)
     this.dialog.open(ModificarUsuariosComponent,{
       width: '70%',
       maxHeight: '80vh',

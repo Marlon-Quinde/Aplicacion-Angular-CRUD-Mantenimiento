@@ -7,6 +7,7 @@ import { AngularMaterialModule } from '../../../../angular-material/angular-mate
 import { ModificarUsuariosComponent } from './pages/modificar-usuarios/modificar-usuarios.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AgregarUsuariosComponent } from './pages/agregar-usuarios/agregar-usuarios.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -20,6 +21,9 @@ import { AgregarUsuariosComponent } from './pages/agregar-usuarios/agregar-usuar
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    //Modules
+    SharedModule,
 
     //PrimeNg y Angular
     PrimeNgModule,

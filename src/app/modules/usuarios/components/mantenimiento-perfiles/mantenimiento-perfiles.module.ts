@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 @NgModule({
   declarations: [
     MostrarPerfilesComponent,
     ModificarPerfilesComponent,
-    AgregarPerfilesComponent
+    AgregarPerfilesComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,8 @@ import { AngularMaterialModule } from 'src/app/angular-material/angular-material
     PrimeNgModule,
     AngularMaterialModule,
 
+    //SharedModule,
+    SharedModule,
     //Router
     MantenimientoPerfilesRoutingModule
   ]

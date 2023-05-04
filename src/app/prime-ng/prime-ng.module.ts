@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
@@ -17,6 +18,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { MenubarModule } from 'primeng/menubar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
 import { StyleClassModule } from 'primeng/styleclass';
 
 
@@ -25,6 +27,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 @NgModule({
   declarations: [],
   exports: [
+    AutoCompleteModule,
     ButtonModule,
     CalendarModule,
     CardModule,
@@ -42,6 +45,7 @@ import { StyleClassModule } from 'primeng/styleclass';
     MenubarModule,
     RadioButtonModule,
     TableModule,
+    ToolbarModule,
     StyleClassModule
   ]
 })

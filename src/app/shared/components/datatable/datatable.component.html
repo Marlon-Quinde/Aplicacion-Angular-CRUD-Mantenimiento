@@ -1,0 +1,117 @@
+<p-toolbar *ngIf="toolbar" styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"></button>
+        <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"></button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+        <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+    </ng-template>
+</p-toolbar>
+
+<ng-container *ngIf="warning">
+    <p-card>
+        <ng-template pTemplate="header">
+            <div class="flex mt-5">
+                <button pButton icon="pi pi-exclamation-triangle" class="text-2xl p-button-text p-button-danger mx-auto m-2 pointer-events-none" label="Advertencia"></button>
+            </div>
+            <p class="text-center">
+                La tabla contiene muchas columnas por lo tanto es muy grande para mostrarse en la pantalla, debera hacer un scroll horizontal o deslizar hacia la izquiera o derecha para poder ver 
+                todos los registros los registros de la tabla completa
+            </p>
+        </ng-template>
+        <ng-template pTemplate="body">
+            <p class="text-center">
+                Gracias por su atencion.
+            </p>
+        </ng-template>
+    </p-card>
+</ng-container>
+
+
+<p-table #table
+         [value]="dataTable"
+         dataKey="id"
+         [tableStyle]="{'min-width': '50rem'}"
+         [paginator]="true"
+         [loading]="loading"
+         [rows]="5"
+         [globalFilterFields]="nameColums"
+         [loading]="loading"
+         [showCurrentPageReport]="true"
+         currentPageReportTemplate="Registros del {first} al {last} de {totalRecords} entradas"
+         styleClass="p-datatable-striped"
+         [rowsPerPageOptions]="[5, 10, 25, 50]">
+
+    <ng-template pTemplate="caption">
+        <ng-container *ngIf="archives">
+            <div class="flex">
+                <!-- <button type="button" pButton pRipple icon="pi pi-file" (click)="table.exportCSV()" class="mr-2" pTooltip="CSV" tooltipPosition="bottom"></button> -->
+                <button type="button" label="Archivo XLSX" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2" pTooltip="Generar XLSX" tooltipPosition="top"></button>
+                <button type="button" label="Archivo PDF" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning mr-2" pTooltip="Generar PDF" tooltipPosition="top"></button>
+                <!-- <button type="button" pButton pRipple icon="pi pi-filter" (click)="table.exportCSV({ selectionOnly: true })" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button> -->
+            </div>
+            <p-divider></p-divider>
+
+        </ng-container>
+
+
+        <div class="flex">
+            <div class="flex-auto flex align-items-center justify-content-center">
+                <button pButton label="Limpiar" class="p-button-outlined mr-2" icon="pi pi-filter-slash" (click)="clear(table)"></button>
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="table.filterGlobal(evento($event), 'contains')" placeholder="Buscar registro" />
+                </span>
+
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let item of nameColums" pSortableColumn="{{item}}" class="bg-primary"> 
+                <ng-container *ngIf="item !== 'transaccion' && item !== 'password' ">
+                    <div class="flex">
+                        {{ item }}
+                        <p-sortIcon field="{{item}}"></p-sortIcon>
+                    </div>
+                </ng-container> 
+            </th>
+            <th *ngIf="editable" class="bg-primary">Editar </th>
+            <th *ngIf="delete" class="bg-primary"> Eliminar </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dataTable>
+        <tr>
+            <td *ngFor="let name of nameColums"> 
+                <ng-container *ngFor="let item of dataTable | keyvalue" >
+                    <ng-container *ngIf="item.key !== 'transaccion'  && item.key !== 'password'">
+                        <ng-container *ngIf="name === item.key">
+                            {{item.value}}
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </td>
+
+            
+            <td *ngIf="editable">
+                <button (click)="modificardata(dataTable)" 
+                        pButton 
+                        icon="pi pi-pencil" 
+                        class="p-button-rounded"></button>
+            </td>
+            <td *ngIf="delete">
+                <button (click)="deletedata(dataTable)" 
+                        pButton 
+                        icon="pi pi-eraser" 
+                        class="p-button-rounded p-button-danger"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            Existen un total de {{dataTable ? dataTable.length : 0 }} registros.
+        </div>
+    </ng-template>
+</p-table>

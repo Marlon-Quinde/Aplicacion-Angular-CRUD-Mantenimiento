@@ -9,38 +9,20 @@
         <p>El sistema de usuarios se basa en un CRUD que como su nombre lo indica permite crear, leer, modificar y borrar algun registro del sistema</p>
     </mat-card-content>
     <mat-card-actions>
-    <button (click)="agregar()" mat-button mat-raised-button color="primary">
+    <button (click)="agregar()" mat-button mat-raised-button class="bg-primary">
         <mat-icon>add</mat-icon>  
         <label class="p-3"> Crear</label>
     </button>
     </mat-card-actions>
 </mat-card>
 
-
 <div class="card">
-    <p-table [value]="usuarios">
-        <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="id">ID <p-sortIcon field="code"></p-sortIcon></th>
-                <th pSortableColumn="nombres">Nombres <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="apellidos">Apellidos <p-sortIcon field="category"></p-sortIcon></th>
-                <th pSortableColumn="usuario">Usuario <p-sortIcon field="quantity"></p-sortIcon></th>
-                <th pSortableColumn="correo">Correo <p-sortIcon field="price"></p-sortIcon></th>
-                <th >Editar </th>
-                <th >Eliminar </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-usuarios>
-            <tr>
-                <td>{{usuarios.id}}</td>
-                <td>{{usuarios.nombres}}</td>
-                <td>{{usuarios.apellidos}}</td>
-                <td>{{usuarios.usuario}}</td>
-                <td>{{usuarios.correo}}</td>
-                <td><button (click)="modificar(usuarios)" pButton icon="pi pi-pencil" class="p-button-rounded"></button></td>
-                <td><button (click)="eliminar(usuarios)" pButton icon="pi pi-eraser" class="p-button-rounded p-button-danger"></button></td>
-                
-            </tr>
-        </ng-template>
-    </p-table>
+    <app-datatable [dataTable]="usuarios"
+                   [nameColums]="nameColumns"
+                   [editable]="true"
+                   [delete]="true"
+                   (onModificar)="modificar($event)"
+                   (onDelete)="eliminar($event)"
+                   >
+    </app-datatable>
 </div>

@@ -9,7 +9,7 @@
         <p>El sistema de perfiles se basa en un CRUD que como su nombre lo indica permite crear, leer, modificar y borrar algun registro del sistema</p>
     </mat-card-content>
     <mat-card-actions>
-    <button (click)="agregar()" mat-button mat-raised-button color="primary">
+    <button (click)="agregar()" mat-button mat-raised-button class="bg-primary">
         <mat-icon>add</mat-icon>  
         <label class="p-3"> Crear</label>
     </button>
@@ -18,7 +18,15 @@
 
 
 <div class="card">
-    <p-table [value]="perfiles">
+    <app-datatable 
+        [dataTable]="perfiles"
+        [nameColums]="nameColums"
+        [editable]="true"
+        [delete]="true"
+        (onModificar)="modificar($event)"
+        (onDelete)="eliminar($event)">
+    </app-datatable>
+    <!-- <p-table [value]="perfiles">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="id">ID <p-sortIcon field="code"></p-sortIcon></th>
@@ -36,5 +44,5 @@
                 
             </tr>
         </ng-template>
-    </p-table>
+    </p-table> -->
 </div>

@@ -25,7 +25,18 @@
             </div>
         </div>
     <div class="mt-2">
-        <p-table [paginator]="true"
+        <app-datatable [dataTable]="clientes"
+                       [nameColums]="columnsName"
+                       [editable]="true"
+                       [delete]="true"
+                       (onModificar)="modificar($event)"
+                       (onDelete)="eliminar($event)"
+                       [archives]="true"
+                       [warning]="true">
+
+        </app-datatable>
+
+        <!-- <p-table [paginator]="true"
                  [rows]="10"
                  class="col mt-2" 
                  [value]="clientes" 
@@ -58,7 +69,7 @@
                     <td><button pButton  (click)="eliminar(clientes)" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button></td>
                 </tr>
             </ng-template>
-        </p-table>
+        </p-table> -->
           
     </div>
 </div>
