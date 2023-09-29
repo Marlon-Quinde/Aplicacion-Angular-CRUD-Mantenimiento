@@ -8,23 +8,21 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { SharedModule } from 'primeng/api';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    HomeUsuariosComponent,
-    InicioComponent
-  ],
+  declarations: [HomeUsuariosComponent, InicioComponent],
   imports: [
     CommonModule,
-    
+
     //Material Desing
     AngularMaterialModule,
     PrimeNgModule,
+    ReactiveFormsModule,
 
     //Router
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
   ],
-  providers:[]
+  providers: [],
 })
-export class UsuariosModule { }
+export class UsuariosModule {}
