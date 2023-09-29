@@ -28,8 +28,12 @@ npm install @types/file-saver --save-dev
 
 ## Screenshots
 
-![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/d2a10b31-5ad3-4dc3-8053-646e39f96acd)
+![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/762ec80a-b851-4c16-8bce-4411fb472159)
 
 ![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/71fabe26-3a46-4129-a9e6-dc4d015c7846)
+
+## Responsive
+###Error Page
+![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/8f8c0b5e-8105-44c9-a1b4-0c5503ad5c04)
 
 
