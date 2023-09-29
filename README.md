@@ -33,7 +33,7 @@ npm install @types/file-saver --save-dev
 ![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/71fabe26-3a46-4129-a9e6-dc4d015c7846)
 
 ## Responsive
-###Error Page
+### Error Page
 ![image](https://github.com/Marlon-Quinde/Aplicacion-Angular-CRUD-Mantenimiento/assets/71990962/8f8c0b5e-8105-44c9-a1b4-0c5503ad5c04)
 
 
